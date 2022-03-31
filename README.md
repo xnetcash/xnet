@@ -8,7 +8,7 @@ All instructions you can find on https://www.xnet.cash
 
 Tutorial - Install node on Ubuntu Server 18.04
 
-nstall a node for your coin on Ubuntu Server 18.04 with the following tutorial.
+Install a node for your coin on Ubuntu Server 18.04 with the following tutorial.
 
 Update your Ubuntu server with the following command:
 sudo apt-get update && sudo apt-get upgrade -y
