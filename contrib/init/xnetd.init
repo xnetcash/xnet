@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+#  xnetd The xnet core server.
+#
+#
+# chkconfig: 345 80 20
+# description: xnetd
+# processname: xnetd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/xnetd, see below
+if [ -f /etc/sysconfig/xnetd ]; then
+        . /etc/sysconfig/xnetd
+fi
+
+RETVAL=0
+
+prog=xnetd
+# you can override the lockfile via XNETD_LOCKFILE in /etc/sysconfig/xnetd
+lockfile=${XNETD_LOCKFILE-/var/lock/subsys/xnetd}
+
+# xnetd defaults to /usr/bin/xnetd, override with XNETD_BIN
+xnetd=${XNETD_BIN-/usr/bin/xnetd}
+
+# xnetd opts default to -disablewallet, override with XNETD_OPTS
+xnetd_opts=${XNETD_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $xnetd $xnetd_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog -t600
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

@@ -1,0 +1,33 @@
+# /etc/conf.d/xnetd: config file for /etc/init.d/xnetd
+
+# Config file location
+#XNETD_CONFIGFILE="/etc/xnet/xnet.conf"
+
+# What directory to write pidfile to?  (created and owned by $XNETD_USER)
+#XNETD_PIDDIR="/var/run/xnetd"
+
+# What filename to give the pidfile
+#XNETD_PIDFILE="${XNETD_PIDDIR}/xnetd.pid"
+
+# Where to write xnetd data (be mindful that the blockchain is large)
+#XNETD_DATADIR="/var/lib/xnetd"
+
+# User and group to own xnetd process
+#XNETD_USER="xnet"
+#XNETD_GROUP="xnet"
+
+# Path to xnetd executable
+#XNETD_BIN="/usr/bin/xnetd"
+
+# Nice value to run xnetd under
+#XNETD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#XNETD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for xnetd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+XNETD_SIGTERM_TIMEOUT=600
