@@ -1,4 +1,4 @@
-# xnet
+# XNET
 
 WELCOME TO XNET CASH
 
@@ -151,6 +151,149 @@ make
 
 The compiled wallet for Microsoft Windows is located in the directory src/qt, the tools are located in the directory src.
 
+
+#################################################################################
+#################################################################################
+#################################################################################
+
+
+Tutorial - Mine for blocks with Microsoft Windows
+
+Mine for blocks with your Windows wallet and the following instructions.
+
+First download the file xnet-qt-windows.zip "https://github.com/xnetcash/xnet/blob/main/xnet-qt-windows.zip"
+
+Open File Explorer and go to your downloads directory.
+
+Extract the zip file xnet-qt-windows.zip
+
+Open "Run" with the keyboard shortcut winkey + r.
+
+Enter the following text behind "Open": notepad
+
+Press on the button "OK".
+
+Paste the following into notepad.
+rpcuser=rpc_xnet
+rpcpassword=dadadfsf8s91Adf
+rpcbind=0.0.0.0
+rpcallowip=127.0.0.1
+listen=1
+server=1
+addnode=node2.walletbuilders.com
+
+Click on the menu item "File" -> "Save As...".
+
+The open dialog box will appear, click on "Save as type" and select the option "All Files (*.*)".
+
+Enter the following text behind "File name": xnet.conf
+
+Click on the menu bar, type the following text %appdata% and press on the enter key. enter
+
+Create the folder xnet and open the folder.
+
+Press on the button "Save".
+
+Create a new file with the keyboard shortcut ctrl + n.
+
+Paste the following into notepad.
+@echo off
+set SCRIPT_PATH=%cd%
+cd %SCRIPT_PATH%
+echo Press [CTRL+C] to stop mining.
+:begin
+ for /f %%i in ('xnet-cli.exe getnewaddress') do set WALLET_ADDRESS=%%i
+ xnet-cli.exe generatetoaddress 1 %WALLET_ADDRESS%
+goto begin
+
+Click on the menu item "File" -> "Save As...".
+
+The open dialog box will appear, click on "Save as type" and select the option "All Files (*.*)".
+
+Enter the following text behind "File name": mine.bat
+
+Click on the menu bar, open the location where you extracted the zip file xnet-qt-windows.zip.
+
+Press on the button "Save".
+
+Open your wallet and execute mine.bat to mine your first block.
+
+#################################################################################
+#################################################################################
+#################################################################################
+
+Tutorial - Mine for blocks with macOS
+
+Mine for blocks with your macOS wallet and the following instructions.
+
+Open Spotlight Search and type the following:
+terminal
+
+Double click on terminal.
+
+Execute the following command, to open your downloads directory:
+cd Downloads
+
+Install Homebrew with the following command:
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+Enter your sudo password to install Homebrew.
+
+Install wget with the following command:
+brew install wget
+
+Download your macOS wallet with the following command:
+wget "https://xnet.cash/xnet-qt.dmg" -O xnet-qt.dmg
+
+Download the macOS tools for your wallet with the following command:
+wget "https://github.com/xnetcash/xnet/blob/main/xnet-tools-macos.tar.gz" -O xnet-tools-macos.tar.gz
+
+Extract the tar file with the following command:
+tar -xzvf xnet-tools-macos.tar.gz
+
+Create the data directory for your coin with the following command:
+mkdir "$HOME/Library/Application Support/xnet/"
+
+Open nano.
+nano "$HOME/Library/Application Support/xnet/xnet.conf" -t
+
+Paste the following into nano.
+rpcuser=rpc_xnet
+rpcpassword=dadadfsf8s91Adf
+rpcbind=0.0.0.0
+rpcallowip=127.0.0.1
+listen=1
+server=1
+addnode=node2.walletbuilders.com
+
+Save the file with the keyboard shortcut ctrl + x.
+
+Open nano.
+nano mine.sh -t
+
+Paste the following into nano.
+#!/bin/bash
+SCRIPT_PATH=`pwd`;
+cd $SCRIPT_PATH
+echo Press [CTRL+C] to stop mining.
+while :
+do
+./xnet-cli generatetoaddress 1 $(./xnet-cli getnewaddress)
+done
+
+Save the file with the keyboard shortcut ctrl + x.
+
+Make the file executable.
+chmod +x mine.sh
+
+Open your downloads directory in Finder.
+
+Install your macOS wallet with the file xnet-qt.dmg.
+
+Open your wallet.
+
+Go back to your terminal and execute the following command to mine your first block:
+./mine.sh
 
 #################################################################################
 #################################################################################
