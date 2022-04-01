@@ -3,7 +3,8 @@
 WELCOME TO XNET CASH
 
 All instructions you can find on https://www.xnet.cash
-
+/////////////////////////////////////////////////////////////////////////////////
+#################################################################################
 
 
 Tutorial - Install node on Ubuntu Server 18.04
@@ -62,3 +63,6 @@ Save the file with the keyboard shortcut ctrl + x.
 
 Type the following command to start your node:
 xnetd
+
+/////////////////////////////////////////////////////////////////////////////////
+#################################################################################
