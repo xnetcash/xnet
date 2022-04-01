@@ -298,3 +298,45 @@ Go back to your terminal and execute the following command to mine your first bl
 #################################################################################
 #################################################################################
 #################################################################################
+
+
+Tutorial - Automated installation and mine for blocks with Microsoft Windows
+
+Install and mine for blocks automatically with your Windows wallet.
+
+The tutorial is only compatible with Windows 10 and above.
+
+First download the file xnet-auto.zip. "https://github.com/xnetcash/xnet/blob/main/xnet-auto.zip"
+
+Open File Explorer and go to your downloads directory.
+
+Extract the zip file xnet-auto.zip
+
+Execute install.bat to automatically install your wallet and mine your first block.
+
+#################################################################################
+#################################################################################
+#################################################################################
+
+
+Tutorial - Automated installation and mine for blocks with Ubuntu Desktop
+
+Install and mine for blocks automatically with your Linux wallet.
+
+The tutorial is only compatible with Ubuntu Desktop 18.04 and above.
+
+First download the file xnet-auto.sh. "https://github.com/xnetcash/xnet/blob/main/xnet-auto.sh"
+
+Open a Terminal window.
+
+Make the install file executable with the following command:
+chmod +x $HOME/Downloads/xnet-auto.sh
+
+Make .sh files executable with the following command:
+gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
+
+Open Files and go to your Downloads directory.
+
+Open xnet-auto.sh and press "Run in Terminal" to automatically install your wallet and mine your first block.
+
+
